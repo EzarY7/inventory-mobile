@@ -1,15 +1,15 @@
 Mochammad Ezar Yudha
 2206046746
 
-<h3>Assignment 6</h3>
+<h1>Assignment 6</h1>
 
-<h1>What are the main differences between stateless and stateful widget in Flutter?</h1>
+<h3>What are the main differences between stateless and stateful widget in Flutter?</h3>
 Stateless widgets are immutable, meaning that the properties of the widgets are defined at the time of creation and do not change with time. Stateful widgets, on the other hand, contain properties that can change with time, meaning that they are primarily used for interactive elements such as animations or any other components that need to reflect the changes of its state. Stateless widgets are generally more efficient because the changes of the state do not need to be tracked.
 
-<h1>Explain all widgets that you used in this assignment.</h1>
+<h3>Explain all widgets that you used in this assignment.</h3>
 The homepage widget is the base of the application and contains the app's title and a scaffold for the rest of the application. The second widget is the card widget, which serves as a template for the 3 buttons in the application. The card widget contains information such as padding and alignment of the buttons, as well as an interactive component in the form of a snackbar. This snackbar is triggered when the user clicks on the button.
 
-<h1>Explain how you implemented the checklist above step-by-step (not just following the tutorial).</h1>
+<h3>Explain how you implemented the checklist above step-by-step (not just following the tutorial).</h3>
 
 Create a new Flutter application with the inventory theme, just like previous tutorials:
 
