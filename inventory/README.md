@@ -1,7 +1,7 @@
 Mochammad Ezar Yudha
 2206046746
 
-<h1>Assignment 6</h1>
+<h1>Assignment 7</h1>
 
 <h3>What are the main differences between stateless and stateful widget in Flutter?</h3>
 Stateless widgets are immutable, meaning that the properties of the widgets are defined at the time of creation and do not change with time. Stateful widgets, on the other hand, contain properties that can change with time, meaning that they are primarily used for interactive elements such as animations or any other components that need to reflect the changes of its state. Stateless widgets are generally more efficient because the changes of the state do not need to be tracked.
