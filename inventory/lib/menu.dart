@@ -53,16 +53,17 @@ class MyHomePage extends StatelessWidget {
 }
 
 final List<Item> items = [
-    Item("View Items", Icons.checklist),
-    Item("Add Item", Icons.add_shopping_cart),
-    Item("Logout", Icons.logout),
+    Item("View Items", Icons.checklist, Colors.indigo),
+    Item("Add Item", Icons.add_shopping_cart, Colors.blue),
+    Item("Logout", Icons.logout, Colors.blueGrey),
 ];
 
 class Item {
   final String name;
   final IconData icon;
+  final MaterialColor color;
 
-  Item(this.name, this.icon);
+  Item(this.name, this.icon, this.color);
 }
 
 class Card extends StatelessWidget {
@@ -73,7 +74,7 @@ class Card extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.indigo,
+      color: item.color,
       child: InkWell(
         // Responsive touch area
         onTap: () {
