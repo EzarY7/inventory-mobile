@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:inventory/widgets/left_drawer.dart'; // import drawer widget
+import 'package:inventory/screens/itemlist_form.dart';
+import 'package:inventory/widgets/inv_card.dart';
 class MyHomePage extends StatelessWidget {
     MyHomePage({Key? key}) : super(key: key);
 
@@ -11,6 +13,7 @@ class MyHomePage extends StatelessWidget {
       'Inventory',
     ),
   ),
+  drawer: const LeftDrawer(), // Add drawer as parameter of the Scaffold widget
   body: SingleChildScrollView(
     // Scrolling wrapper widget
     child: Padding(
@@ -41,7 +44,7 @@ class MyHomePage extends StatelessWidget {
             shrinkWrap: true,
             children: items.map((Item item) {
               // Iteration for each item
-              return Card(item);
+              return InvCard(item);
             }).toList(),
           ),
         ],
@@ -57,56 +60,3 @@ final List<Item> items = [
     Item("Add Item", Icons.add_shopping_cart, Colors.blue),
     Item("Logout", Icons.logout, Colors.blueGrey),
 ];
-
-class Item {
-  final String name;
-  final IconData icon;
-  final MaterialColor color;
-
-  Item(this.name, this.icon, this.color);
-}
-
-class Card extends StatelessWidget {
-  final Item item;
-
-  const Card(this.item, {Key? key}); // Constructor
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: item.color,
-      child: InkWell(
-        // Responsive touch area
-        onTap: () {
-          // Show a SnackBar when clicked
-          ScaffoldMessenger.of(context)
-            ..hideCurrentSnackBar()
-            ..showSnackBar(SnackBar(
-                content: Text("You pressed the ${item.name} button!")));
-        },
-        child: Container(
-          // Container to hold Icon and Text
-          padding: const EdgeInsets.all(8),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  item.icon,
-                  color: Colors.white,
-                  size: 30.0,
-                ),
-                const Padding(padding: EdgeInsets.all(3)),
-                Text(
-                  item.name,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(color: Colors.white),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}

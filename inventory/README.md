@@ -22,3 +22,15 @@ I first created a Card class to create the stateless widget for the buttons. The
 Create an Snackbar:
 
 I added a snippet of code into the Card class and created an event handler named "onTap" for when a button is clicked.
+
+<h1>Assignment 8</h1>
+
+<h3>Explain the difference between Navigator.push() and Navigator.pushReplacement(), accompanied by examples of the correct usage of both methods!</h3>
+
+<h3>Explain each layout widget in Flutter and their respective usage contexts!</h3>
+
+<h3>List the form input elements you used in this assignment and explain why you used these input elements</h3>
+
+<h3>How is clean architecture implemented in a Flutter application?</h3>
+
+<h3>Explain how you implemented the checklist above step-by-step! (not just following the tutorial)</h3>
