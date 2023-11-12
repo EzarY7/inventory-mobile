@@ -78,6 +78,7 @@ I added Navigators to each card (button) in the main page using Navigator.pushRe
 I used AlertDialog to display the pop-up text. The AlertDialog contains 3 seperate text fields, each containing an an input element from the form and its corresponding value that was inputted by the user. When the user clicks OK, the pop-up will disappear. This was done by popping the pop-up from the page stack using Navigator.pop().
 
 6. Create a drawer in the application with the following requirements: The drawer must have at least two options: Home and Add Item. When choosing the Home option, the application will direct the user to the main page.
+
 I created a new file for the drawer named 'left_drawer.dart'. I created a Drawer widget with a listView to display its children in a scrollable manner. The top of the Drawer (DrawerHeader) contains two text fields to display some text. I then created ListTiles for each option (Home, Add Item, and View Items). Each ListTile comprises of Text and a navigator to direct the user to its corresponding page.
 
 
