@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:inventory/widgets/left_drawer.dart'; // import drawer widget
-import 'package:inventory/screens/itemlist_form.dart';
 import 'package:inventory/widgets/inv_card.dart';
 class MyHomePage extends StatelessWidget {
-    MyHomePage({Key? key}) : super(key: key);
+    const MyHomePage({Key? key}) : super(key: key);
 
     @override
     Widget build(BuildContext context) {
@@ -25,7 +24,7 @@ class MyHomePage extends StatelessWidget {
             padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
             // Text widget to display text with center alignment and appropriate style
             child: Text(
-              'Inventory', // Text indicating the shop name
+              'Inventory', // Text indicating the inventory name
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 30,

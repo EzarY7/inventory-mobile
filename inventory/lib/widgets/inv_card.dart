@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:inventory/screens/itemlist_form.dart';
-// import 'package:inventory/screens/itemlist.dart';
+import 'package:inventory/screens/itemlist.dart';
 class Item {
   final String name;
   final IconData icon;
@@ -31,16 +31,16 @@ class InvCard extends StatelessWidget {
           Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-          builder: (context) => ItemFormPage(),
+          builder: (context) => const ItemFormPage(),
           ));
         }
-        // if (item.name == "View Items") {
-        //   Navigator.pushReplacement(
-        //   context,
-        //   MaterialPageRoute(
-        //   builder: (context) => ItemListPage(),
-        //   ));
-        // }
+        if (item.name == "View Items") {
+          Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+          builder: (context) => const ItemListPage(),
+          ));
+        }
         },
         child: Container(
           // Container to hold Icon and Text

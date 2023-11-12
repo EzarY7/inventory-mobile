@@ -26,11 +26,58 @@ I added a snippet of code into the Card class and created an event handler named
 <h1>Assignment 8</h1>
 
 <h3>Explain the difference between Navigator.push() and Navigator.pushReplacement(), accompanied by examples of the correct usage of both methods!</h3>
+Both of these methods are used to allow a user to navigate to a new page. They both utilize the stack feature to keep track of user's page history. The diffrences are in the way they push a new page to the top of the stack. With Navigator.push(), a new page is pushed on top of the stack, moving the previous page at the top of the stack downwards. Whereas with Navigator.pushReplacement(), a new page replaces the current top page in the stack, deleting it from the stack/page history.
+
+An example of the use of Navigator.push() would be a case where you want to direct a user to a new page without deleting the previous page from their history. This makes it possible to have a feature that allows users to navigate to the previous page, such as a back button.
+
+Navigator.pushReplacement() is used when you want to direct a user to a new page while also restricting the user's access to the previous page. For example, after a user logs in to a website, the method could be used to replace the login page in the stack with a homepage. This makes it so that the user won't be able to go back to the login page.
 
 <h3>Explain each layout widget in Flutter and their respective usage contexts!</h3>
+The layout widgets used in this project are the Container, Align, Padding, Column, ListView, and GridView.
+
+Containers: Used to contain and decorate other widgets. They provide things such as padding, margin, and decoration.
+
+Align: Aligns its child within the parent using a specified alignment.
+
+Padding: Provides padding around a widget. Is used to create space between a parent widget and its child widget.
+
+Column: Arranges children widgets in a vertical column.
+
+ListView: Displays a scrollable list of widgets. Used for arranging objects in a list.
+
+GridView: Displays a scrollable grid of widgets. Used for arranging objects in a two-dimensional grid.
 
 <h3>List the form input elements you used in this assignment and explain why you used these input elements</h3>
+I created 3 variables which store the values of the item's name, amount, and description. I then used TextFormField to allow the user to submit text as input which will be saved onto these variables.
 
 <h3>How is clean architecture implemented in a Flutter application?</h3>
+This can be done by seperating files of the same nature into their own seperate subdirectories. For example, we could bundle up all of the widgets files into a directory called 'widgets'.
 
 <h3>Explain how you implemented the checklist above step-by-step! (not just following the tutorial)</h3>
+
+Create at least one new page in the application, a page for adding a new item with the following requirements:
+
+1. Use at least three input elements: name, amount, description. Add input elements according to the model in your Django assignment:
+
+I first defined 3 variables in the itemlist_form.dart file. Then, inside of the build widget, I created a Form widget which wraps a column of TextFormField widgets. Each TextFormField widget corresponds to an input element from the model (name, amount, and description). The Form will automatically update the values initially defined in the beginning of the class with the values inputted by the user. The inputs are then validated to ensure that the inputs match the correct types.
+
+2. Have a Save button:
+
+I created a Save button at the bottom of the page. When pressed, it will check the state of the Form and try to validate the inputs given by the user. If the inputs are valid, then it will display a pop-up containing the saved values. At the end of its execution, the current state of the form will be reset and the user is free to input new values into the form.
+
+3. Validate each input element in the form with the following requirements: Each input element must not be empty, Each input element must contain data of the same data type as its model attribute.
+
+I created validators for each TextFormField widget to ensure the correct input types. The values will then be validated when the Save button is clicked.
+
+4. Direct users to the new item addition form page when clicking the Add Item button on the main page:
+
+I added Navigators to each card (button) in the main page using Navigator.pushReplacement(). The navigators will direct the user to a card's corresponding page.
+
+5. Display data as entered in the form in a pop-up after clicking the Save button on the new item addition page:
+
+I used AlertDialog to display the pop-up text. The AlertDialog contains 3 seperate text fields, each containing an an input element from the form and its corresponding value that was inputted by the user. When the user clicks OK, the pop-up will disappear. This was done by popping the pop-up from the page stack using Navigator.pop().
+
+6. Create a drawer in the application with the following requirements: The drawer must have at least two options: Home and Add Item. When choosing the Home option, the application will direct the user to the main page.
+I created a new file for the drawer named 'left_drawer.dart'. I created a Drawer widget with a listView to display its children in a scrollable manner. The top of the Drawer (DrawerHeader) contains two text fields to display some text. I then created ListTiles for each option (Home, Add Item, and View Items). Each ListTile comprises of Text and a navigator to direct the user to its corresponding page.
+
+

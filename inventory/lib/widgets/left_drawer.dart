@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:inventory/screens/menu.dart';
 import 'package:inventory/screens/itemlist_form.dart';
+import 'package:inventory/screens/itemlist.dart';
 
 
 class LeftDrawer extends StatelessWidget {
@@ -18,7 +19,7 @@ class LeftDrawer extends StatelessWidget {
   child: Column(
     children: [
       Text(
-        'Shopping List',
+        'Inventory',
         textAlign: TextAlign.center,
         style: TextStyle(
           fontSize: 30,
@@ -27,7 +28,7 @@ class LeftDrawer extends StatelessWidget {
         ),
       ),
       Padding(padding: EdgeInsets.all(10)),
-      Text("Write all your shopping needs here!",
+      Text("View your collection of items here!",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                 fontSize: 15,
@@ -53,13 +54,25 @@ ListTile(
 ),
 ListTile(
   leading: const Icon(Icons.add_shopping_cart),
-  title: const Text('Add Product'),
+  title: const Text('Add Item'),
   // redirect to ShopFormPage
   onTap: () {
     Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => ItemFormPage(),
+          builder: (context) => const ItemFormPage(),
+        ));
+  },
+),
+ListTile(
+  leading: const Icon(Icons.checklist),
+  title: const Text('View Items'),
+  // redirect to ShopFormPage
+  onTap: () {
+    Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const ItemListPage(),
         ));
   },
 ),

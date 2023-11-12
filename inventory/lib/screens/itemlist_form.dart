@@ -120,7 +120,7 @@ class _ItemFormPageState extends State<ItemFormPage> {
                                             context: context,
                                             builder: (context) {
                                             return AlertDialog(
-                                                title: const Text('Product successfully saved'),
+                                                title: const Text('Item successfully saved'),
                                                 content: SingleChildScrollView(
                                                 child: Column(
                                                     crossAxisAlignment:
@@ -143,7 +143,7 @@ class _ItemFormPageState extends State<ItemFormPage> {
                                             );
                                             },
                                         );
-                                        // itemObjects.add(ItemObject(_name,_amount,_description));
+                                        itemObjects.add(ItemObject(_name,_amount,_description));
                                         _formKey.currentState!.reset();
                                         }
                                     },
@@ -163,12 +163,12 @@ class _ItemFormPageState extends State<ItemFormPage> {
     }
 }
 
-// final List<ItemObject> itemObjects = [];
+final List<ItemObject> itemObjects = [];
 
-// class ItemObject {
-//   final String name;
-//   final int amount;
-//   final String description;
+class ItemObject {
+  final String name;
+  final int amount;
+  final String description;
 
-//   ItemObject(this.name, this.amount, this.description);
-// }
+  ItemObject(this.name, this.amount, this.description);
+}
