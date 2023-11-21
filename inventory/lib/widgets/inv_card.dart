@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:inventory/screens/itemlist_form.dart';
 import 'package:inventory/screens/itemlist.dart';
+import 'package:inventory/screens/login.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:provider/provider.dart';
 class Item {
   final String name;
   final IconData icon;
@@ -16,11 +19,12 @@ class InvCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final request = context.watch<CookieRequest>();
     return Material(
       color: item.color,
       child: InkWell(
         // Responsive touch area
-        onTap: () {
+        onTap: () async {
           // Show a SnackBar when clicked
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
@@ -41,6 +45,25 @@ class InvCard extends StatelessWidget {
           builder: (context) => const ItemListPage(),
           ));
         }
+        else if (item.name == "Logout") {
+        final response = await request.logout(
+            "http://127.0.0.1:8000/auth/logout/");
+        String message = response["message"];
+        if (response['status']) {
+          String uname = response["username"];
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text("$message Good bye, $uname."),
+          ));
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => const LoginPage()),
+          );
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text("$message"),
+          ));
+        }
+      }
         },
         child: Container(
           // Container to hold Icon and Text

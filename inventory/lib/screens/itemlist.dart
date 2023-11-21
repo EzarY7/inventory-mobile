@@ -49,10 +49,10 @@ class _ItemListPageState extends State<ItemListPage> {
           GridView.count(
             // Container for our cards.
             primary: true,
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.all(10),
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,
-            crossAxisCount: 3,
+            crossAxisCount: 5,
             shrinkWrap: true,
             children: itemObjects.map((ItemObject item) { // Items from the itemObjects list.
               // Iteration for each item

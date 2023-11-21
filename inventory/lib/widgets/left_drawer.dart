@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inventory/screens/list_item.dart';
 import 'package:inventory/screens/menu.dart';
 import 'package:inventory/screens/itemlist_form.dart';
 import 'package:inventory/screens/itemlist.dart';
@@ -48,14 +49,14 @@ ListTile(
     Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => MyHomePage(),
+          builder: (context) => const MyHomePage(),
         ));
   },
 ),
 ListTile(
   leading: const Icon(Icons.add_shopping_cart),
   title: const Text('Add Item'),
-  // redirect to ShopFormPage
+  // redirect to ItemFormPage
   onTap: () {
     Navigator.pushReplacement(
         context,
@@ -67,7 +68,7 @@ ListTile(
 ListTile(
   leading: const Icon(Icons.checklist),
   title: const Text('View Items'),
-  // redirect to ShopFormPage
+  // redirect to ItemListPage
   onTap: () {
     Navigator.pushReplacement(
         context,
@@ -75,6 +76,17 @@ ListTile(
           builder: (context) => const ItemListPage(),
         ));
   },
+),
+ListTile(
+    leading: const Icon(Icons.shopping_basket),
+    title: const Text('Item List'),
+    onTap: () {
+        // Route menu to product page
+        Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const ItemPage()),
+        );
+    },
 ),
         ],
       ),
