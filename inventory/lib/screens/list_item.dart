@@ -95,13 +95,14 @@ Widget build(BuildContext context) {
                                     style: const TextStyle(
                                         fontSize: 18.0,
                                         fontWeight: FontWeight.bold,
+                                        color: Colors.white
                                     ),
                                     ),
                                     const SizedBox(height: 10),
-                                    Text("${snapshot.data![index].fields.amount}"),
+                                    Text("${snapshot.data![index].fields.amount}", style: const TextStyle(color: Colors.white)),
                                     const SizedBox(height: 10),
                                     Text(
-                                        "${snapshot.data![index].fields.description}")
+                                        "${snapshot.data![index].fields.description}", style: const TextStyle(color: Colors.white))
                                 ],
                                 ),
                             )

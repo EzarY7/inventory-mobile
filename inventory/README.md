@@ -119,3 +119,4 @@ I created a file named list_item.dart that fetches a list of items from the serv
 Create a detail page for each item listed on the Item list page:
 I created a file named item_details.dart that can be accessed when an item is tapped in the list_item.dart. This screen displays the item's name, amount, and description.
 
+Django app: https://github.com/EzarY7/PBD_Assignment1
