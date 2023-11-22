@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:inventory/screens/itemlist_form.dart';
-import 'package:inventory/screens/itemlist.dart';
 import 'package:inventory/screens/list_item.dart';
 import 'package:inventory/screens/login.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';

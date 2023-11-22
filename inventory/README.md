@@ -96,17 +96,26 @@ The first step is to fetch the data by sending HTTP requests to the server or AP
 In the flutter application, users can input their credentials such as username and password. These credentials are then sent to the django backend serveer. Django then handles the incoming authentication by verifying the user's credentials. If the credentials match, Django generates an authentication token or session for the authenticated user and sends a success response back to the Flutter app. If the credentials don't match, Django returns an authentication failure response.
 
 <h3>List all the widgets you used in this assignment and explain their respective functions.</h3>
+GridView: A scrollable grid with a default scroll direction, either vertical or horizontal, depending on the scrollDirection property.
 
+InkWell: Used to create a rectangular area in the UI that responds to touch gestures, such as taps, long presses, and other interactions.
+
+SizedBox: Used to control the size of its child widget or to add empty space within the layout.
 
 <h3>Explain how you implement the checklist above step by step! (not just following the tutorial).</h3>
 
 Create a login page in the Flutter project:
+I created a file named login.dart where user input is collected and validated and sent to a server for authentication. The file also handles success or failure responses.
 
 Integrate the Django authentication system with the Flutter project:
+I defined a function named fetchItem() that performs an HTTP GET request to retrieve a list of items from my local URL, processes the response, and converts the JSON data into a list of Item objects. I was then able to display those objects in my items list. I used a similar approach to authenticate a user's credentials in the login feature. 
 
 Create a custom model according to your Django application project:
+I created a model in the lib/models directory named item.dart. The model consists of the following: name, date added, amount and description of the item. It also has the name of the user who created the item.
 
 Create a page containing a list of all items available at the JSON endpoint in Django that you have deployed:
+I created a file named list_item.dart that fetches a list of items from the server, displays them in a GridView, and navigates to an item details page when an item is tapped.
 
 Create a detail page for each item listed on the Item list page:
+I created a file named item_details.dart that can be accessed when an item is tapped in the list_item.dart. This screen displays the item's name, amount, and description.
 
