@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:inventory/screens/itemlist_form.dart';
 import 'package:inventory/screens/itemlist.dart';
+import 'package:inventory/screens/list_item.dart';
 import 'package:inventory/screens/login.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
@@ -42,7 +43,7 @@ class InvCard extends StatelessWidget {
           Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-          builder: (context) => const ItemListPage(),
+          builder: (context) => const ListItemPage(),
           ));
         }
         else if (item.name == "Logout") {

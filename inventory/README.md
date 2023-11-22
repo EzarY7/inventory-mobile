@@ -81,4 +81,32 @@ I used AlertDialog to display the pop-up text. The AlertDialog contains 3 sepera
 
 I created a new file for the drawer named 'left_drawer.dart'. I created a Drawer widget with a listView to display its children in a scrollable manner. The top of the Drawer (DrawerHeader) contains two text fields to display some text. I then created ListTiles for each option (Home, Add Item, and View Items). Each ListTile comprises of Text and a navigator to direct the user to its corresponding page.
 
+<h1>Assignment 9</h1>
+
+<h3>Can we retrieve JSON data without creating a model first? If yes, is it better than creating a model before retrieving JSON data?</h3>
+Yes, it is possible to retrieve JSON data without creating a model first. This approach involves creating Map<string,dynamic> structures and handling the raw data directly using those structures. This approach is advantageous for small, one off data. However, for larger sets of data, it is advised to use models, as they provide more maintainability and readibility.
+
+<h3>Explain the function of CookieRequest and explain why a CookieRequest instance needs to be shared with all components in a Flutter application.</h3>
+CookiesRequests, are requests sent to a server, specifically dealing with cookies. When communicating with a server, web applications often send and receive cookies as part of the HTTP headers. In some cases, multiple components within a Flutter application might need to make HTTP requests, and these requests may require cookie-related information. By sharing a CookieRequest instance across components, you ensure consistency in sending and handling cookies across different parts of the application.
+
+<h3>Explain the mechanism of fetching data from JSON until it can be displayed on Flutter.</h3>
+The first step is to fetch the data by sending HTTP requests to the server or API that responds with JSON data. Once the request is made, the server responds with JSON data. We can convert the JSON strings recieved from the server into dart objects by using the dart:convert library. The next part is optional but is essential for better handling and type safety, we can create dart model classes that represent the structure of the JSON data. The final step is to display the data using flutter widgets such as ListView.Builder(), GridView.builder(), etc.
+
+<h3>Explain the authentication mechanism from entering account data on Flutter to Django authentication completion and the display of menus on Flutter.</h3>
+In the flutter application, users can input their credentials such as username and password. These credentials are then sent to the django backend serveer. Django then handles the incoming authentication by verifying the user's credentials. If the credentials match, Django generates an authentication token or session for the authenticated user and sends a success response back to the Flutter app. If the credentials don't match, Django returns an authentication failure response.
+
+<h3>List all the widgets you used in this assignment and explain their respective functions.</h3>
+
+
+<h3>Explain how you implement the checklist above step by step! (not just following the tutorial).</h3>
+
+Create a login page in the Flutter project:
+
+Integrate the Django authentication system with the Flutter project:
+
+Create a custom model according to your Django application project:
+
+Create a page containing a list of all items available at the JSON endpoint in Django that you have deployed:
+
+Create a detail page for each item listed on the Item list page:
 

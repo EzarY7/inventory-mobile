@@ -68,25 +68,14 @@ ListTile(
 ListTile(
   leading: const Icon(Icons.checklist),
   title: const Text('View Items'),
-  // redirect to ItemListPage
+  // redirect to View list Page
   onTap: () {
     Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const ItemListPage(),
+          builder: (context) => const ListItemPage(),
         ));
   },
-),
-ListTile(
-    leading: const Icon(Icons.shopping_basket),
-    title: const Text('Item List'),
-    onTap: () {
-        // Route menu to product page
-        Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const ItemPage()),
-        );
-    },
 ),
         ],
       ),

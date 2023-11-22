@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:inventory/models/item.dart';
+import 'package:inventory/screens/item_details.dart';
 import 'package:inventory/widgets/left_drawer.dart';
 
-class ItemPage extends StatefulWidget {
-    const ItemPage({Key? key}) : super(key: key);
+class ListItemPage extends StatefulWidget {
+    const ListItemPage({Key? key}) : super(key: key);
 
     @override
     _ItemPageState createState() => _ItemPageState();
 }
 
-class _ItemPageState extends State<ItemPage> {
+class _ItemPageState extends State<ListItemPage> {
 Future<List<Item>> fetchItem() async {
     var url = Uri.parse(
         'http://127.0.0.1:8000/json/');
@@ -40,7 +41,9 @@ Widget build(BuildContext context) {
         title: const Text('Item'),
         ),
         drawer: const LeftDrawer(),
+        
         body: FutureBuilder(
+          
             future: fetchItem(),
             builder: (context, AsyncSnapshot snapshot) {
                 if (snapshot.data == null) {
@@ -58,9 +61,28 @@ Widget build(BuildContext context) {
                         ],
                     );
                 } else {
-                    return ListView.builder(
+                    return GridView.builder(
+                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3, // Number of columns
+                        crossAxisSpacing: 10.0, // Spacing between columns
+                        mainAxisSpacing: 10.0, // Spacing between rows
+                        childAspectRatio: 16/9, // Aspect ratio (width/height) of each item
+                      ),
                         itemCount: snapshot.data!.length,
-                        itemBuilder: (_, index) => Container(
+                        itemBuilder: (_, index) => Material(
+                          color: Color.fromARGB(255, 198, 199, 207),
+                          child: InkWell(
+                          onTap: () {
+                             Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ItemPage(item: snapshot.data![index]),
+                              ),
+                            );
+                          },
+                                child: Container(
+                                height: 10,
+                                width: 150,
                                 margin: const EdgeInsets.symmetric(
                                     horizontal: 16, vertical: 12),
                                 padding: const EdgeInsets.all(20.0),
@@ -82,7 +104,11 @@ Widget build(BuildContext context) {
                                         "${snapshot.data![index].fields.description}")
                                 ],
                                 ),
-                            ));
+                            )
+                        )
+                    )
+                    
+                            );
                     }
                 }
             }));
